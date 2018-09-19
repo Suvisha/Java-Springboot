@@ -16,10 +16,9 @@ class SignUpForm extends Component {
         formErrors:{FirstName:'',LastName:'',userNm:'',passWord:''},
         formValid:false
     }
-    
+   // this.onBackClick=this.onBackClick.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this)
 }
-
 handleUserInput = (e) => {
   const name = e.target.name;
   const value = e.target.value;
@@ -71,9 +70,7 @@ validateForm() {
 errorClass(error) {
   return(error.length === 0 ? '' : 'has-error');
 }
-/*onSubmitClick(){
-  alert("submitted")
-}*/
+
       render(){
         return(
                  <form className="RegistrationPage">

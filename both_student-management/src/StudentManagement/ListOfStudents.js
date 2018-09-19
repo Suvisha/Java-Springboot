@@ -8,18 +8,36 @@ class ListOfStudents extends React.Component
     constructor(props)
     {
         super(props)
+        this.state={isLoging:false,Students:[]}
         this.handleBack=this.handleBack.bind(this);
     }
     handleBack()
     {
         this.props.history.push('/TeacherHome');
     }
+    componentDidMount()
+    {
+        this.setState({isLoaded:true});
+        fetch("http://localhost:8080/LoginPage/ListOfAllStudents")
+        .then(res =>res.json())
+        .then(
+            (result)=>{
+                this.setState({
+                  isLoaded:false,
+                  Students:result
+                });
+              }
+        )
+    }
     render()
     {
+       
         return( 
             <div> 
+                <ul> 
                 <EditLink> </EditLink>
                 <Button buttonName="Back" handleOnClick={this.handleBack}/>
+                </ul>
             </div>
         );
     }
