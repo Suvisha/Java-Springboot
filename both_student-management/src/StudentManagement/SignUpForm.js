@@ -64,7 +64,8 @@ validateField(fieldName,value){
                   }, this.validateForm);
 }
 
-validateForm() {
+validateForm() 
+{
   this.setState({formValid: this.state.FirstNmValid && this.state.LastNameValid && this.state.UserNameValid &&this.state.PasswordValid});
 }
 errorClass(error) {

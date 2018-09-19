@@ -18,13 +18,13 @@ class ListOfStudents extends React.Component
     componentDidMount()
     {
         this.setState({isLoaded:true});
-        fetch("http://localhost:8080/LoginPage/ListOfAllStudents")
+        fetch("http://localhost:8080/LoginPage/ListOfAllStudents", {credentials: 'same-origin'})
         .then(res =>res.json())
         .then(
             (result)=>{
                 this.setState({
                   isLoaded:false,
-                  Students:result
+                  Students:result._embedded.Students
                 });
               }
         )
