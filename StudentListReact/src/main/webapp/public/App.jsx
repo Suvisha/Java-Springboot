@@ -25,7 +25,7 @@ class App extends React.Component {
   
   // Load students from database
   loadStudentsFromServer() {
-      fetch('http://localhost:8080/api/students', 
+      fetch('http://localhost:8080/LoginPage/ListOfStudents', 
       {credentials: 'same-origin'}) 
       .then((response) => response.json()) 
       .then((responseData) => { 

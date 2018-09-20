@@ -27,6 +27,7 @@ class AddNewStudent extends React.Component
         this.handleAddressLine2Change=this.handleAddressLine2Change.bind(this); 
         this.handlePincodeChange=this.handlePincodeChange.bind(this);
         this.handleBack=this.handleBack.bind(this);
+        this.createStudent=this.createStudent.bind(this);
     }
     handleFirstNameChange(value)
     {
@@ -119,11 +120,31 @@ class AddNewStudent extends React.Component
             </div>
         );
     }
-    handleAddStudent()
+    createStudent(student) {
+        fetch('http://localhost:8080/LoginPage/AddNewstudent', 
+        {   method: 'POST', 
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(student)
+        })
+        .then( 
+            res => this.props.loadStudentsFromServer()
+        )
+        .catch( err => console.error(err))
+    }
+    handleAddStudent(e)
     {
         if(this.state.FirstName!=="" && this.state.LastName!==""&&this.state.Class!=="" && this.state.Division!==""&&this.state.AddressLine1!=="" && this.state.pincode!=="")
         {
-            alert("Added "+ this.state.FirstName);
+            e.preventDefault();
+            console.log("Added "+ this.state.FirstName);
+            var newStudent = {FirstName: this.state.FirstName, LastName: this.state.LastName, 
+                Class:this.state.Class,Division:this.state.Division,
+                AddressLine1:this.state.AddressLine1,AddressLine2:this.state.AddressLine2,
+                pincode:this.state.pincode};
+            this.props.createStudent(newStudent); 
             this.props.history.push('/ListOfStudents');
         }
         else

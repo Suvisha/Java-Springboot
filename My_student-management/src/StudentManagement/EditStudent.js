@@ -8,9 +8,10 @@ class EditStudent extends React.Component
     constructor(props)
     {
         super(props)
-        this.state={FirstName:" ",LastName:" ",Class:" ",
-                    Division:" ",AddressLine1:" ",
-                    AddressLine2:" ",pincode:"",firstNameValid:false,
+        this.state={FirstName:this.props.student.FirstName,LastName:this.props.student.LastName,
+                    Class:this.props.student.Class,Division:this.props.student.Division,
+                    AddressLine1:this.props.student.AddressLine1,AddressLine2:this.props.student.AddressLine2,
+                    pincode:this.props.student.pincode,firstNameValid:false,
                     lastNameValid:false,
                     divisionValid: false,
                     addressLine1Valid:false,
@@ -27,6 +28,7 @@ class EditStudent extends React.Component
         this.handleAddressLine2Change=this.handleAddressLine2Change.bind(this); 
         this.handlePincodeChange=this.handlePincodeChange.bind(this);
         this.handleBack=this.handleBack.bind(this);
+        this.updateStudent=this.updateStudent.bind(this);
     }
     handleFirstNameChange(value)
     {
@@ -118,10 +120,31 @@ class EditStudent extends React.Component
             </div>
         );
     }
-    handleEditStudent()
+    updateStudent(student) 
+    {
+        fetch(student.link, 
+        {   method: 'PUT', 
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(student)
+        })
+        .then( 
+            res => this.loadStudentsFromServer()
+        )
+        .catch( err => console.error(err))
+    }
+    handleEditStudent(e)
     {
         if(this.state.FirstName!=="" && this.state.LastName!==""&&this.state.Class!=="" && this.state.Division!==""&&this.state.AddressLine1!=="" && this.state.pincode!=="")
         {
+            e.preventDefault();
+            var updStudent = {link: this.props.student._links.self.href ,FirstName: this.state.FirstName, LastName: this.state.LastName, 
+                Class:this.state.Class,Division:this.state.Division,
+                AddressLine1:this.state.AddressLine1,AddressLine2:this.state.AddressLine2,
+                pincode:this.state.pincode};
+            this.props.updateStudent(updStudent);
             alert("Updated "+ this.state.FirstName);
             this.props.history.push('/ListOfStudents');
         }

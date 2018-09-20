@@ -2,23 +2,43 @@ import React from 'react';
 import EditLink from './EditLink';
 import './Button.css'
 import Button from './Button';
+//import TeacherHome from './TeacherHome';
 
 class ListOfStudents extends React.Component
 {
     constructor(props)
     {
         super(props)
+        this.state={students:[]}
         this.handleBack=this.handleBack.bind(this);
     }
+    
     handleBack()
     {
         this.props.history.push('/');
     }
     render()
     {
+        
         return( 
-            <div> 
-                <EditLink> </EditLink>
+            <div>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Class</th>
+                            <th>Division</th>
+                            <th>AddressLine1</th>
+                            <th>AddressLine2</th>
+                            <th>PIN code</th>
+                        </tr>
+                        <tr>
+                            {/* {students} */}
+                            <td><EditLink> </EditLink></td>
+                        </tr>
+                    </thead>
+      </table>
                 <Button buttonName="Back" handleOnClick={this.handleBack}/>
             </div>
         );

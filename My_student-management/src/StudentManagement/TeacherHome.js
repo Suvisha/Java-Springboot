@@ -24,7 +24,7 @@ class TeacherHome extends React.Component
                 </div>   
                 <form>
                     <Button handleOnClick={this.handleListOfStudents} buttonName="List Of Students"> </Button>
-                    <Button handleOnClick={this.handleNewStudent} buttonName="Add New Students"> </Button>
+                    <Button handleOnClick={this.handleNewStudent} buttonName="Add New Students" > </Button>
                 </form>
             </div>
         );
@@ -39,7 +39,6 @@ class TeacherHome extends React.Component
     //     }, err => {
     //      alert("Server rejected response with: " + err);
     //    });
-        
     }
     handleNewStudent()
     {

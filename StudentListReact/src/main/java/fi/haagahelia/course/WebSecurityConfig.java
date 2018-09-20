@@ -15,14 +15,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter 
+{
     @Autowired
     private UserDetailServiceImpl userDetailsService;	
 	
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-		http
-		.authorizeRequests()
+    protected void configure(HttpSecurity http) throws Exception 
+    {
+		http.authorizeRequests()
 			.antMatchers("/public/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
