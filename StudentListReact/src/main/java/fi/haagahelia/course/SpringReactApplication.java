@@ -27,10 +27,10 @@ public class SpringReactApplication {
 			urepository.save(user1);
 			urepository.save(user2);
 	    	
-	        repository.save(new Student("John", "Johnson", "john@john.com"));
-	        repository.save(new Student("Mary", "Poppins", "pop@mary.com"));
-	        repository.save(new Student("Rob", "Robber", "rob@bery.com"));
-	        repository.save(new Student("Kate", "Robinson", "kate@robinson.com"));
+	        repository.save(new Student("aman", "pawar", "aman@gmail.com"));
+	        repository.save(new Student("Rohan", "ka", "rohan@gmail.com"));
+	        repository.save(new Student("aangi", "sha", "aangi@gmail.com"));
+	        repository.save(new Student("suvi", "kv", "kate@gmail.com"));
 	    };
 	}	
 }

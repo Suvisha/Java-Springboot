@@ -138,7 +138,6 @@ class AddNewStudent extends React.Component
     {
         if(this.state.FirstName!=="" && this.state.LastName!==""&&this.state.Class!=="" && this.state.Division!==""&&this.state.AddressLine1!=="" && this.state.pincode!=="")
         {
-            e.preventDefault();
             console.log("Added "+ this.state.FirstName);
             var newStudent = {FirstName: this.state.FirstName, LastName: this.state.LastName, 
                 Class:this.state.Class,Division:this.state.Division,
