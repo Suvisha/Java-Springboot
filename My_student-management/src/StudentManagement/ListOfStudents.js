@@ -3,6 +3,7 @@ import EditLink from './EditLink';
 import './Button.css'
 import Button from './Button';
 //import TeacherHome from './TeacherHome';
+import Student from './Students'
 
 class ListOfStudents extends React.Component
 {
@@ -19,7 +20,9 @@ class ListOfStudents extends React.Component
     }
     render()
     {
-        
+        var students=this.props.students.map(student =>
+			<Student key={student._links.self.href} student={student}/>
+		);
         return( 
             <div>
                 <table className="table table-striped">
@@ -34,11 +37,11 @@ class ListOfStudents extends React.Component
                             <th>PIN code</th>
                         </tr>
                         <tr>
-                            {/* {students} */}
+                            {{students}}
                             <td><EditLink> </EditLink></td>
                         </tr>
                     </thead>
-      </table>
+                </table>
                 <Button buttonName="Back" handleOnClick={this.handleBack}/>
             </div>
         );

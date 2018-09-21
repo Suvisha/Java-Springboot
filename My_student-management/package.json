@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "client": "0.0.1",
     "history": "^4.7.2",
     "mysql": "^2.16.0",
     "react": "^16.4.2",
@@ -15,6 +16,7 @@
     "react-scripts": "1.1.5",
     "react-validation": "^3.0.7",
     "redux": "^4.0.0",
+    "the-react-client": "^1.2.0",
     "validator": "^10.7.1"
   },
   "scripts": {

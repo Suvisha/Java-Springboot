@@ -10,7 +10,7 @@ public class Student
     private @Id @GeneratedValue Long id;
     private String firstname, lastname, email;
  
-    private Student() {}
+   // private Student() {}
  
     public Student(String firstname, String lastname, String email) {
         this.firstname = firstname;

@@ -8,8 +8,8 @@ class EditLink extends React.Component
         return(
                 <div>
                     <tr> 
-                        <td> <a href="/ListOfStudents/EditStudent"> Edit </a><br/> <br/></td>
-                        <td><a href="/ListOfStudents/DeleteStudent">Delete</a></td>
+                        <td> <a href="/ListOfStudents/EditStudent">   Edit   </a> </td>
+                        <td> <a href="/ListOfStudents/DeleteStudent"> Delete </a> </td>
                     </tr>
                 </div>
         );

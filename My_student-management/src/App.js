@@ -7,9 +7,20 @@ import ListOfStudents from "./StudentManagement/ListOfStudents";
 import EditStudent from './StudentManagement/EditStudent';
 import DeleteStudent from './StudentManagement/DeleteStudent';
 
+
 class App extends Component 
 {
-  
+  constructor(props)
+  {
+    super(props)
+    this.state={students:[]}
+  }
+  componentDidMount() 
+  {
+		//   client({method: 'GET', path: '/LoginPage/ListOfStudents'}).done(response => {
+		// 	this.setState({students: response.entity._embedded.students});
+		// });
+	}
   render() 
   {
     return(
