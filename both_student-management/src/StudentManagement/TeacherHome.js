@@ -12,8 +12,6 @@ class TeacherHome extends React.Component
       this.handleListOfStudents=this.handleListOfStudents.bind(this);
       this.handleNewStudent=this.handleNewStudent.bind(this);
       this.handleLogOut=this.handleLogOut.bind(this);
-  //    const BASE_URL = 'https://localhost:8080/LoginPage';
-  //    const PERSON_API = BASE_URL + '/ListOfStudents'
     }
     
     render()
@@ -37,21 +35,6 @@ class TeacherHome extends React.Component
     handleListOfStudents()
     {   
        this.props.history.push("/ListOfStudents")
-    //    axios.get("http://localhost:8080/LoginPage/ListOfStudents").then(res => 
-    //    {
-    //           alert("Received Successful response from server!"+res);
-    //     });
-    //     axios({    
-    //     method: 'get',
-    //     url: PERSON_API,
-    //     data: {
-    //       person
-    //     }
-    //   }).then((response) => {
-    //       onSuccess(response);
-    //     }).catch(function (error) {
-    //       console.log(error);
-    //     });
     }
     handleNewStudent()
     {

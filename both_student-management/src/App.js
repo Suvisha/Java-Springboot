@@ -7,7 +7,6 @@ import ListOfStudents from './StudentManagement/ListOfStudents'
 import AddNewStudent from './StudentManagement/AddNewStudent'
 import EditStudent from './StudentManagement/EditStudent'
 import DeleteStudent from './StudentManagement/DeleteStudent'
-//import axios from 'axios'
 import './App.css';
 
 class App extends Component
@@ -18,20 +17,6 @@ class App extends Component
     this.state={isLoaded:true};
   }
   
-  
-  componentDidMount()
-  {
-    this.setState({isLoaded:true});
-     fetch("http://localhost:8080/LoginPage")
-     .then(res =>res.json())
-     .then(
-       ()=>{
-         this.setState({
-           isLoaded:true
-         });
-        }
-     )
-  }
   render() 
   {
     const {isLoaded}=this.state;

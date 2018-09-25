@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import SkyLight from 'react-skylight';
-import SkyLightStateless from 'react-skylight';
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
@@ -45,7 +44,7 @@ class App extends React.Component {
       )
       .then(() => { 
           Alert.success('Student deleted', {
-            position: 'bottom-left',
+            position: 'bottom-center',
             effect: 'slide'
           });
       })
@@ -147,26 +146,30 @@ class Student extends React.Component {
     } 
 }
 
-class StudentForm extends React.Component {
-    constructor(props) {
+class StudentForm extends React.Component 
+{
+    constructor(props) 
+    {
         super(props);
         this.state = {firstname: '', lastname: '', email: ''};
         this.handleSubmit = this.handleSubmit.bind(this);   
         this.handleChange = this.handleChange.bind(this);     
     }
 
-    handleChange(event) {
+    handleChange(event) 
+    {
         this.setState(
             {[event.target.name]: event.target.value}
         );
     }    
     
-    handleSubmit(event) {
+    handleSubmit(event) 
+    {
         event.preventDefault();
         console.log("Firstname: " + this.state.firstname);
         var newStudent = {firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email};
         this.props.createStudent(newStudent);    
-        this.refs.simpleDialog.hide();    
+        this.refs.simpleDialog.hide();
     }
     
     render() {
@@ -178,13 +181,13 @@ class StudentForm extends React.Component {
                 <div className="panel-body">
                 <form className="form">
                     <div className="col-md-4">
-                        <input type="text" placeholder="Firstname" className="form-control"  name="firstname" onChange={this.handleChange}/>    
+                        <input type="text" placeholder="Firstname" className="form-control"  name="firstname" onChange={this.handleChange} required/>    
                     </div>
                     <div className="col-md-4">       
-                        <input type="text" placeholder="Lastname" className="form-control" name="lastname" onChange={this.handleChange}/>
+                        <input type="text" placeholder="Lastname" className="form-control" name="lastname" onChange={this.handleChange} required/>
                     </div>
                     <div className="col-md-4">
-                        <input type="text" placeholder="Email" className="form-control" name="email" onChange={this.handleChange}/>
+                        <input type="text" placeholder="Email" className="form-control" name="email" onChange={this.handleChange} required/>
                     </div>
                     <div className="col-md-2">
                         <button className="btn btn-primary" onClick={this.handleSubmit}>Save</button>   
@@ -231,13 +234,13 @@ class StudentUpdateForm extends React.Component {
                 <div className="panel-body">
                 <form className="form">
                     <div className="col-md-4">
-                        <input type="text" placeholder="Firstname" className="form-control"  name="firstname" value={this.state.firstname} onChange={this.handleChange}/>    
+                        <input type="text" placeholder="Firstname" className="form-control"  name="firstname" value={this.state.firstname} onChange={this.handleChange} required/>    
                     </div>
                     <div className="col-md-4">       
-                        <input type="text" placeholder="Lastname" className="form-control" name="lastname" value={this.state.lastname} onChange={this.handleChange}/>
+                        <input type="text" placeholder="Lastname" className="form-control" name="lastname" value={this.state.lastname} onChange={this.handleChange} required/>
                     </div>
                     <div className="col-md-4">
-                        <input type="text" placeholder="Email" className="form-control" name="email" value={this.state.email} onChange={this.handleChange}/>
+                        <input type="text" placeholder="Email" className="form-control" name="email" value={this.state.email} onChange={this.handleChange} required/>
                     </div>
                     <div className="col-md-2">
                         <button className="btn btn-primary" onClick={this.handleSubmit}>Save</button>   

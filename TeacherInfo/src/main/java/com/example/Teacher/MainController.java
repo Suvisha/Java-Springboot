@@ -41,7 +41,8 @@ public class MainController
 			, @RequestParam String Division
 			, @RequestParam String AddressLine1
 			, @RequestParam String AddressLine2
-			, @RequestParam Integer pincode) 
+			, @RequestParam Integer pincode
+			, @RequestParam Integer Teacherid) 
 	{
 		StudentInfo s = new StudentInfo();
 		s.setfirstName(firstName);
@@ -51,24 +52,13 @@ public class MainController
 		s.setAddressLine1(AddressLine1);
 		s.setAddressLine2(AddressLine2);
 		s.setpincode(pincode);
+		s.setTeacherId(Teacherid);
 		studentRepository.save(s);
 		return "Saved";
 	}
-	
 	@GetMapping(path="/allStudents" )
 	public @ResponseBody Iterable<StudentInfo> getAllStudents() 
 	{
 		return studentRepository.findAll();
 	}
-	
-//	@GetMapping(path="/EditStudent")
-//	public @ResponseBody Iterable<StudentInfo> getStudentById(int id)
-//	{
-//		StudentInfo student;
-//		if(student.getId()==id)
-//		{
-//		  
-//		}
-//		return null;
-//	}
 }

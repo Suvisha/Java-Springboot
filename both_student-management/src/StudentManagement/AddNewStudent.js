@@ -121,10 +121,26 @@ class AddNewStudent extends React.Component
     }
     handleAddStudent()
     {
+        const fname = this.state.FirstName;
+        const lname = this.state.LastName;
+        const classs = this.state.Class;
+        const division= this.state.Division;
+        const line1 = this.state.AddressLine1;
+        const line2 = this.state.AddressLine2;
+        const pin = this.state.pincode;
         if(this.state.FirstName!=="" && this.state.LastName!==""&&this.state.Class!=="" && this.state.Division!==""&&this.state.AddressLine1!=="" && this.state.pincode!=="")
         {
-            alert("Added "+ this.state.FirstName);
-            this.props.history.push('/ListOfStudents');
+            if(
+                fetch('http://localhost:8080/addStudent?firstName='+fname+
+             '&lastName='+lname+'&TeacherID='+1+'&classs='+classs+'&division='+division+'&line1='+line1 +
+             '&line2='+ line2+'&pinCode='+pin,
+             {method:'GET',mode:"no-cors"})
+             .then(resp => resp)
+             .then(findResp => this.setState({data:findResp}))
+            ){
+             alert("Added "+ this.state.FirstName);
+             this.props.history.push('/ListOfStudents');   
+            }
         }
         else
         {

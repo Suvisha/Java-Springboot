@@ -2,20 +2,26 @@
 <html>
 
 <head>
-    <title>React + Spring</title>
+    <title>StudenetManagement</title>
 </head>
 
 <body>
 	<div class="col-md-4" style="padding:10px 10px">
-	    <form th:action="@{/logout}" method="post">
-	        <input type="submit" class="btn btn-danger" value="Log Out"/>
-	    </form>
+		 <header>
+         	<center><h1>Student Management</h1></center>
+        </header> 
 	</div>
-
     <div class='container'>
         <div id='root'></div>
 	</div>
-
 	<script src="/public/bundle.js"></script>
+	<form th:action="@{/logout}" method="post">
+	    <input type="submit" class="btn btn-danger" value="Log Out"/>
+	</form>
+	<div>
+		<footer align="center" position="fixed">
+			<h6>Copyright © 2018 StudentManagement , Inc. All rights reserved.</h6>
+		</footer>
+	</div>
 </body>
 </html>

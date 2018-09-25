@@ -8,12 +8,11 @@ class EditStudent extends React.Component
     constructor(props)
     {
         super(props)
-        this.state={FirstName:" ",LastName:" ",Class:" ",
-                    Division:" ",AddressLine1:" ",
-                    AddressLine2:" ",pincode:"",firstNameValid:false,
-                    lastNameValid:false,
-                    divisionValid: false,
-                    addressLine1Valid:false,
+        this.state={FirstName:this.props.FirstName,LastName:this.props.LastName,Class:this.props.Class,
+                    Division:this.props.Division,AddressLine1:this.props.AddressLine1,
+                    AddressLine2:this.props.AddressLine2,pincode:this.props.pincode,
+                    firstNameValid:false,lastNameValid:false,
+                    divisionValid: false,addressLine1Valid:false,
                     pincodeValid:false,
                     ErrfirstName:" ",ErrlastName:" ",ErrClass:"",Errdivision:" ",
                     ErraddressLine1:" ",Errpincode:"",ErrButton:""
