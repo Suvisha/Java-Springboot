@@ -24,7 +24,7 @@ class App extends React.Component {
   
   // Load students from database
   loadStudentsFromServer() {
-      fetch('http://localhost:8080/LoginPage/ListOfStudents', 
+      fetch('http://localhost:8080/api/students', 
       {credentials: 'same-origin'}) 
       .then((response) => response.json()) 
       .then((responseData) => { 
@@ -68,7 +68,8 @@ class App extends React.Component {
   }
   
   // Update student
-  updateStudent(student) {
+  updateStudent(student) 
+  {
     fetch(student.link, 
     {   method: 'PUT', 
         credentials: 'same-origin',
@@ -94,12 +95,14 @@ class App extends React.Component {
   }
 }
     	
-class StudentTable extends React.Component {
+class StudentTable extends React.Component 
+{
     constructor(props) {
         super(props);
     }
     
-    render() {
+    render() 
+    {
     var students = this.props.students.map(student =>
         <Student key={student._links.self.href} student={student} updateStudent={this.props.updateStudent} deleteStudent={this.props.deleteStudent}/>
     );
@@ -112,7 +115,7 @@ class StudentTable extends React.Component {
             <th>Firstname</th><th>Lastname</th><th>Email</th><th> </th>
           </tr>
         </thead>
-        <tbody>{students}</tbody>
+        <tbody>{student_info}</tbody>
       </table>
       </div>);
     }
@@ -125,7 +128,8 @@ class Student extends React.Component {
         this.deleteStudent = this.deleteStudent.bind(this);      
     }
 
-    deleteStudent() {
+    deleteStudent() 
+    {
         this.props.deleteStudent(this.props.student);
     } 
 
@@ -135,6 +139,7 @@ class Student extends React.Component {
             <td>{this.props.student.firstname}</td>
             <td>{this.props.student.lastname}</td>
             <td>{this.props.student.email}</td>
+            <td>{this.props.student.id}</td>
             <td>               
                 <StudentUpdateForm updateStudent={this.props.updateStudent} student={this.props.student}/>          
             </td>
@@ -158,9 +163,10 @@ class StudentForm extends React.Component
 
     handleChange(event) 
     {
-        this.setState(
-            {[event.target.name]: event.target.value}
-        );
+        if(event.target.value!=" ")
+        this.setState( {[event.target.name]: event.target.value} );
+        else
+        alert("fill fields");
     }    
     
     handleSubmit(event) 
